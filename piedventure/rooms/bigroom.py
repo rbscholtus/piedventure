@@ -55,15 +55,14 @@ def main(data_path: Path) -> None:
     print('Are these the people who summoned you here? You try to ask them, but')
     print('seem to be rendered more speechless than a test subject in a portal game.')
     time.sleep(5)
-    print('\n')
-    print('A waiter brings out a tray and places it in front of you. Lifting the lid,')
+    print('\nA waiter brings out a tray and places it in front of you. Lifting the lid,')
     print(
         "you find a weird rainbow coloured pill in front of you. Very 'Matrix', you think",
     )
     print('to yourself. What does this mean? Are you supposed to take the pill?')
     print('Is this some kind of test? And who ARE these people?!')
     time.sleep(5)
-    print('\n')
+    print()
     print('What would you like to do?')
 
     # Actions loop

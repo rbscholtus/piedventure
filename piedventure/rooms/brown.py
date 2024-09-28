@@ -55,7 +55,7 @@ def main(data_path: Path) -> None:
             "The last time you were in this room, you turned the lever on. It's still on.",
         )
     else:
-        print("It looks like it's in the off position.")
+        print(f"It looks like it's in the {leverstate} position.")
 
     print()
     print('The only exit is north, back the way you came.')
@@ -78,7 +78,7 @@ def main(data_path: Path) -> None:
             print("Seriously? Through the wall? Sorry, I can't do that.")
         elif nsewuh == 'u':
             # Check the lever state again
-            leverstate = Path('/logic/leverlogic.ben').read_text().strip()
+            leverstate = lib.get_leverstate(data_path)
             if leverstate == 'on':
                 print('Having already turned it on, you try to turn it off. And fail.')
             else:

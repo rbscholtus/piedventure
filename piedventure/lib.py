@@ -7,8 +7,8 @@ of levers, and display ASCII art and scripts from specified directories.
 from pathlib import Path
 
 # Define paths for art and script directories
-art_dir = Path(__file__).parent.parent / 'art'
-script_dir = Path(__file__).parent.parent / 'script'
+art_dir = Path(__file__).parent / 'art'
+script_dir = Path(__file__).parent / 'script'
 
 
 def reset_logic(data_path: Path) -> None:
@@ -21,7 +21,7 @@ def reset_logic(data_path: Path) -> None:
         data_path (Path): The path to the directory containing the lever logic file.
 
     """
-    path = data_path / 'leverlogic.ben'
+    path = data_path / 'logic' / 'leverlogic.ben'
     path.write_text('off')
 
 
@@ -37,7 +37,7 @@ def get_leverstate(data_path: Path) -> str:
         str: The current state of the lever ('on' or 'off').
 
     """
-    path = data_path / 'leverlogic.ben'
+    path = data_path / 'logic' / 'leverlogic.ben'
     return path.read_text().strip()
 
 
@@ -52,7 +52,7 @@ def set_leverstate(data_path: Path, state: str) -> None:
         state (str): The desired state of the lever ('on' or 'off').
 
     """
-    path = data_path / 'leverlogic.ben'
+    path = data_path / 'logic' / 'leverlogic.ben'
     path.write_text(state)
 
 

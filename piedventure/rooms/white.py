@@ -48,7 +48,7 @@ def main(data_path: Path) -> None:
     print()
 
     # Check the lever state
-    leverstate = Path('../logic/leverlogic.ben').read_text().strip()
+    leverstate = lib.get_leverstate(data_path)
     if leverstate == 'on':
         print("There's a delicately carved statue at the end of the room.")
         print("It's a kitten, hewn from beautiful white marble.")

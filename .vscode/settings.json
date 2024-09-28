@@ -10,9 +10,5 @@
     },
     "[toml]": {
         "editor.defaultFormatter": "tamasfe.even-better-toml"
-    },
-    "docify.commentService.docstringFormat": "Google",
-    "docify.translateService.docstringFormat": "Google",
-    "docify.commentService.programmingLanguage": "python",
-    "docify.translateService.programmingLanguage": "python"
+    }
 }

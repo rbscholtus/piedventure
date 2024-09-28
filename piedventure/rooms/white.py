@@ -1,11 +1,37 @@
+"""Module to represent the White Room within the game.
+
+In this room, the player
+can interact with a statue of a kitten and navigate back to the main room.
+The player is also able to check the state of a lever that influences the
+environment and their interactions.
+
+The player can issue commands to navigate or interact with the statue.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
+
 from . import kroo, mainroom
 
 
-def main(data_path: Path):
+def main(data_path: Path) -> None:
+    """Handle player interactions within the White Room.
+
+    The player enters the White Room and is greeted by its brightness. They can
+    interact with a statue of a kitten, check the state of a lever, and navigate
+    back to the main room. The function processes user input for navigation and
+    actions within this room.
+
+    Args:
+        data_path (Path): Path to the game data, which is used for maintaining
+                          or modifying game state.
+
+    Returns:
+        None
+
+    """
     # Clear the terminal (works for most terminals)
     print('\033c', end='')
 
@@ -59,6 +85,6 @@ def main(data_path: Path):
             print('You hug the statue. It seems to vibrate a little. Weird.')
         else:
             print(
-                "I'm sorry, I don't understand you. Commands are: n, e, s, w, u and h.")
+                "I'm sorry, I don't understand you. Commands are: n, e, s, w, u, and h.")
 
     print('Exiting...')

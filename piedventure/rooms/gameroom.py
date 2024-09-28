@@ -1,11 +1,28 @@
+"""Module representing the game room in the adventure game.
+
+This module contains the logic for the game room, where the player can interact with
+a gaming computer and navigate to other rooms.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
+
 from . import kroo2, mainroom
 
 
-def main(data_path: Path):
+def main(data_path: Path) -> None:
+    """Handle the game room interactions.
+
+    Clears the terminal, displays the room's description, and processes the player's
+    input for interactions such as sitting down to game, checking exits, or moving
+    to other rooms.
+
+    Args:
+        data_path (Path): Path to the data file for game state.
+
+    """
     # Clear the terminal (works for most terminals)
     print('\033c', end='')
 
@@ -56,6 +73,6 @@ def main(data_path: Path):
             print('You hug the computer. Nerd.')
         else:
             print(
-                "I'm sorry, I don't understand you. Commands are: n, e, s, w, u and h.")
+                "I'm sorry, I don't understand you. Commands are: n, e, s, w, u, and h.")
 
     print('Exiting the game room...')

@@ -1,11 +1,27 @@
+"""Module representing the Grue encounter in the adventure game.
+
+This module contains the logic for encountering a Grue, where the player
+listens to Grue poetry and faces a gruesome death.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
+
 from . import mainroom
 
 
-def main(data_path: Path):
+def main(data_path: Path) -> None:
+    """Handle the Grue encounter.
+
+    Clears the terminal, displays the Grue encounter, and processes the player's
+    ultimate demise after being forced to listen to Grue poetry.
+
+    Args:
+        data_path (Path): Path to the data file for game state.
+
+    """
     # Clear the terminal (works for most terminals)
     print('\033c', end='')
 
@@ -13,7 +29,7 @@ def main(data_path: Path):
     lib.display_art('titleart.ben')
     print('\n')
 
-    # Room description
+    # Room description and encounter
     time.sleep(1)
     print('This is a long room, and as you walk down it, you see a person.')
     print('Finally! Another person! You start to run toward the shadowy figure')

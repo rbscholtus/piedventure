@@ -1,11 +1,37 @@
+"""Module to handle the player interaction in a room scene within the game.
+
+The player is introduced to a dining room where they encounter mysterious diners
+and are presented with a series of choices. The player can explore the room or
+interact with the environment using simple commands. The outcome of the game can
+change based on these interactions, and the player can eventually progress to the
+endroom by selecting the correct command.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
+
 from . import endroom
 
 
-def main(data_path: Path):
+def main(data_path: Path) -> None:
+    """Introduce the player to a room scene and prompts for actions.
+
+    The player steps into a dining room scene and interacts with other diners.
+    The function provides a description of the room, and repeatedly prompts the player
+    for commands to explore or perform actions in the room. Depending on the player's
+    input, they can explore, interact with the environment, or proceed to the next
+    section of the game by calling `endroom.main()`.
+
+    Args:
+        data_path (Path): Path to the game data, which will be passed to the
+        endroom function if the player chooses to proceed.
+
+    Returns:
+        None
+
+    """
     # Clear the terminal (works for most terminals)
     print('\033c', end='')
 

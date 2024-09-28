@@ -1,10 +1,34 @@
+"""Module to define the end sequence of the game.
+
+The the player experiences a surreal dream-like scenario involving a unicorn and a
+mysterious kitten figurine.
+
+The player goes through a series of vivid scenes after swallowing a pill,
+ultimately concluding with a cryptic message. The game then thanks the player for
+playing and provides a final message.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
 
 
-def main(data_path: Path):
+def main(data_path: Path) -> None:
+    """Run the final sequence of the game, a surreal dream scene and the game's ending.
+
+    The player swallows a pill and experiences a dream-like sequence involving
+    rainbows, unicorns, and a mysterious kitten figurine. The function ends with
+    a cryptic message delivered over a phone call and a final display of artwork.
+    Afterward, the player is thanked for playing the game.
+
+    Args:
+        data_path (Path): Path to the game data, which is used to reset the lever state.
+
+    Returns:
+        None
+
+    """
     # Clear the terminal (works for most terminals)
     print('\033c', end='')
 

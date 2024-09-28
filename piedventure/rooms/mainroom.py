@@ -1,11 +1,36 @@
+"""Module to represent a central room in a game.
+
+The player can navigate
+to various colored rooms (brown, green, red, and white) after waking up in a
+mysterious large space. The player can interact with the environment by
+inputting directional commands to explore different areas.
+
+The player can also attempt to perform actions such as using items or hugging themselves.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
+
 from . import brown, green, red, white
 
 
-def main(data_path: Path):
+def main(data_path: Path) -> None:
+    """Handle the player's interactions within the central room.
+
+    After waking up in a large room, the player is presented with options to
+    navigate to adjacent colored rooms (north, east, south, and west). This function
+    listens for directional commands, allowing the player to explore the environment
+    and advance the game's storyline by moving to different rooms.
+
+    Args:
+        data_path (Path): Path to the game data, used for maintaining or modifying game state.
+
+    Returns:
+        None
+
+    """
     # Clear the terminal (works for most terminals)
     print('\033c', end='')
 

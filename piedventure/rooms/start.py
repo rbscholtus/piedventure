@@ -1,12 +1,19 @@
+"""Module to start the adventure game.
+
+This module contains the game introduction and navigation logic for
+the initial room and other areas.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
+
 from . import brown, green, red, white
 
 
-def game_intro():
-    """Game introduction logic."""
+def game_intro() -> None:
+    """Display the game introduction with title art and an opening script."""
     print('Loading introduction...')
     lib.display_art('titleart.ben')
     time.sleep(5)
@@ -15,8 +22,8 @@ def game_intro():
     print('\033[H\033[J')  # Clear screen
 
 
-def start_room():
-    """First room logic"""
+def start_room() -> None:
+    """Display the initial room's description."""
     lib.display_art('titleart.ben')
     time.sleep(1)
     print()
@@ -31,34 +38,47 @@ def start_room():
     print()
 
 
-def navigate_rooms(data_path):
-    """Navigate rooms based on player input"""
+def navigate_rooms(data_path: Path) -> None:
+    """Handle player navigation between rooms based on player input.
+
+    Args:
+        data_path (Path): Path to the data file for game state.
+
+    """
     while True:
         choice = input('> ').strip().lower()
 
         if choice == 'n':
             white.main(data_path)
             break
-        if choice == 's':
+        elif choice == 's':
             brown.main(data_path)
             break
-        if choice == 'e':
+        elif choice == 'e':
             red.main(data_path)
             break
-        if choice == 'w':
-            green.amin(data_path)
+        elif choice == 'w':
+            green.main(data_path)
             break
-        if choice == 'u':
+        elif choice == 'u':
             print("There's nothing you can use right here.")
         elif choice == 'h':
             print("You give yourself a quick hug. It's not very satisfying.")
         else:
             print("I'm sorry, I don't understand you. "
-                  'Commands are: n, e, s, w, u, and h.')
+                  "Commands are: n, e, s, w, u, and h.")
 
 
-def main(data_path: Path):
-    lib.reset_logic(data_path)  # Reset lever logic
-    game_intro()  # Show introduction
-    start_room()  # Start the first room
-    navigate_rooms(data_path)  # Navigate through the rooms
+def main(data_path: Path) -> None:
+    """Start the game and manage navigation.
+
+    Resets game state, shows the introduction, and initiates the room navigation.
+
+    Args:
+        data_path (Path): Path to the data file for game state.
+
+    """
+    lib.reset_logic(data_path)
+    game_intro()
+    start_room()
+    navigate_rooms(data_path)

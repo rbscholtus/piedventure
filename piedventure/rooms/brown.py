@@ -1,11 +1,36 @@
+"""Module to simulate a player's interaction within a dimly lit, eerie room.
+
+The player enters a room with a lever on the wall and an exit leading back north.
+The function narrates the scene and allows the player to perform actions such as
+moving, interacting with the lever, and giving humorous commands. Depending on the
+state of the lever, the player can turn it on or be notified if it's already on.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
+
 from . import mainroom
 
 
-def main(data_path: Path):
+def main(data_path: Path) -> None:
+    """Introduce the player to a dim room with a lever and prompts for actions.
+
+    The player steps into a room with a retro-style carpet and a lever on the wall.
+    The function describes the room and checks the state of the lever (on or off).
+    The player can interact with the environment by issuing commands to move or manipulate
+    the lever. Depending on the player's input, they can either return to the main room,
+    toggle the lever, or perform humorous non-actions.
+
+    Args:
+        data_path (Path): Path to the game data, which is used to check or change the
+        lever state and passed to the mainroom function when returning.
+
+    Returns:
+        None
+
+    """
     # Clear the terminal (works for most terminals)
     print('\033c', end='')
 

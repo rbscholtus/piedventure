@@ -1,11 +1,27 @@
+"""Module representing the red room in the adventure game.
+
+This module contains the logic for the red room, where the player can sit in a chair
+or navigate back to the main room.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
+
 from . import mainroom
 
 
-def main(data_path: Path):
+def main(data_path: Path) -> None:
+    """Handle the red room interactions.
+
+    Clears the terminal, displays the room's description, and processes the player's
+    input for sitting, interacting with the environment, or exiting the room.
+
+    Args:
+        data_path (Path): Path to the data file for game state.
+
+    """
     # Clear the terminal (works for most terminals)
     print('\033c', end='')
 

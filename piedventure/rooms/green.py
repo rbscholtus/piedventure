@@ -1,11 +1,35 @@
+"""Module to simulate a room within a game where the player is overwhelmed by a green environment.
+
+The player is presented with various choices to interact with the room and can eventually
+leave the room by moving east, triggering the transition to another scene (mainroom).
+The green room provides a humorous, surreal atmosphere as part of the game's narrative.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
+
 from . import mainroom
 
 
-def main(data_path: Path):
+def main(data_path: Path) -> None:
+    """Run the interaction in the green room of the game.
+
+    The player enters a green room that is humorously described as overwhelmingly
+    green. The player can explore the room by entering different commands
+    (north, south, east, west, up, hug), each of which triggers a unique description
+    or action. If the player chooses to move east, the function transitions to
+    the 'mainroom'.
+
+    Args:
+        data_path (Path): Path to the game data, which is used to pass to other
+        functions or modules that manage game states.
+
+    Returns:
+        None
+
+    """
     # Clear the terminal (works for most terminals)
     print('\033c', end='')
 
@@ -42,4 +66,4 @@ def main(data_path: Path):
             print('You curl yourself up into a ball and rock back and forth.')
         else:
             print(
-                "I'm sorry, I don't understand you. Commands are: n, e, s, w, u and h.")
+                "I'm sorry, I don't understand you. Commands are: n, e, s, w, u, and h.")

@@ -1,11 +1,27 @@
+"""Module representing the corridor in the adventure game.
+
+This module contains the logic for the corridor, where the player can navigate
+to different rooms or interact with the environment.
+"""
+
 import time
 from pathlib import Path
 
-from .. import lib
+from piedventure import lib
+
 from . import bigroom, gameroom, grue
 
 
-def main(data_path: Path):
+def main(data_path: Path) -> None:
+    """Handle the corridor interactions.
+
+    Clears the terminal, displays the room's description, and processes the player's
+    input for navigating to other rooms or interacting with the environment.
+
+    Args:
+        data_path (Path): Path to the data file for game state.
+
+    """
     # Clear the terminal (works for most terminals)
     print('\033c', end='')
 
@@ -44,4 +60,4 @@ def main(data_path: Path):
                   ' you should try to hug yourself again.')
         else:
             print(
-                "I'm sorry, I don't understand you. Commands are: n, e, s, w, u and h.")
+                "I'm sorry, I don't understand you. Commands are: n, e, s, w, u, and h.")

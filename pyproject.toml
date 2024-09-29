@@ -10,6 +10,7 @@ classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
     "Topic :: Games/Entertainment",
+    "Intended Audience :: End Users/Desktop",
 ]
 
 
